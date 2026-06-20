@@ -83,28 +83,37 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "ANTHROPIC_API_KEY not set" }, { status: 500 });
   }
 
-  const { image, mediaType } = await req.json();
-  if (!image || !mediaType) {
+  const body = await req.json();
+
+  // Support both single image (legacy) and array of images
+  const imageList: Array<{ image: string; mediaType: string }> =
+    body.images ?? [{ image: body.image, mediaType: body.mediaType }];
+
+  if (!imageList.length || !imageList[0]?.image) {
     return NextResponse.json({ error: "Missing parameters" }, { status: 400 });
   }
 
-  const imageContent = {
+  const imageBlocks = imageList.map(({ image, mediaType }) => ({
     type: "image" as const,
     source: {
       type: "base64" as const,
       media_type: mediaType as "image/jpeg" | "image/png" | "image/gif" | "image/webp",
       data: image,
     },
-  };
+  }));
+
+  const describePrefix = imageList.length > 1
+    ? `You are given ${imageList.length} screenshots from the same movie. Analyze ALL of them together.\n\n`
+    : "";
 
   try {
-    // Pass 1: detailed visual description (no thinking needed here, just description)
+    // Pass 1: detailed visual description across all images
     const describeResponse = await client.messages.create({
       model: "claude-sonnet-4-6",
       max_tokens: 2000,
       messages: [{
         role: "user",
-        content: [imageContent, { type: "text", text: DESCRIBE_PROMPT }],
+        content: [...imageBlocks, { type: "text", text: describePrefix + DESCRIBE_PROMPT }],
       }],
     }) as Awaited<ReturnType<typeof client.messages.create>>;
 
@@ -113,14 +122,14 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Failed to describe image" }, { status: 502 });
     }
 
-    // Pass 2: identify movie using description + image, with more thinking budget
+    // Pass 2: identify using description + all images
     const identifyResponse = await client.messages.create({
       model: "claude-sonnet-4-6",
       max_tokens: 16000,
       thinking: { type: "enabled", budget_tokens: 8000 },
       messages: [{
         role: "user",
-        content: [imageContent, { type: "text", text: IDENTIFY_PROMPT(description) }],
+        content: [...imageBlocks, { type: "text", text: IDENTIFY_PROMPT(description) }],
       }],
     } as Parameters<typeof client.messages.create>[0]) as Awaited<ReturnType<typeof client.messages.create>>;
 
