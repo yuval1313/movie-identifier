@@ -78,10 +78,11 @@ export async function POST(req: NextRequest) {
           ],
         },
       ],
-    } as Parameters<typeof client.messages.create>[0]);
+    } as Parameters<typeof client.messages.create>[0]) as Awaited<ReturnType<typeof client.messages.create>>;
 
-    const textBlock = response.content.find((b) => b.type === "text");
-    const text = textBlock && textBlock.type === "text" ? textBlock.text : "";
+    const msg = response as { content: Array<{ type: string; text?: string }> };
+    const textBlock = msg.content.find((b) => b.type === "text");
+    const text = textBlock?.text ?? "";
 
     // Extract JSON by counting braces
     const start = text.indexOf("{");
