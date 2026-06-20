@@ -178,11 +178,15 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#0a0a0f] text-white flex flex-col items-center justify-start py-16 px-4" dir="rtl">
       {/* Header */}
-      <div className="flex items-center gap-3 mb-3">
-        <Film className="w-8 h-8 text-amber-400" />
-        <h1 className="text-4xl font-bold tracking-tight">מזהה סרטים</h1>
+      <div className="mb-3 text-center">
+        <h1
+          className="text-5xl font-black tracking-widest mb-3"
+          style={{ color: "#00d4ff", fontStyle: "italic", textShadow: "0 0 30px rgba(0,212,255,0.4)" }}
+        >
+          מזהה סרטים
+        </h1>
       </div>
-      <p className="text-gray-400 mb-10 text-center">
+      <p className="text-gray-400 mb-10 text-center text-sm tracking-wide">
         העלה תמונה מסרט — המערכת תזהה מאיזה סרט היא נלקחה
       </p>
 
