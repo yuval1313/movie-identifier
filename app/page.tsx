@@ -180,13 +180,13 @@ export default function Home() {
       {/* Header */}
       <div className="mb-3 text-center">
         <h1
-          className="text-5xl font-black tracking-widest mb-3"
-          style={{ color: "#00d4ff", fontStyle: "italic", textShadow: "0 0 30px rgba(0,212,255,0.4)" }}
+          className="text-5xl font-bold tracking-widest mb-3"
+          style={{ color: "#4a9ebe", fontFamily: "var(--font-karantina), sans-serif" }}
         >
           מזהה סרטים
         </h1>
       </div>
-      <p className="text-gray-400 mb-10 text-center text-sm tracking-wide">
+      <p className="text-gray-400 mb-10 text-center text-sm tracking-wide" style={{ fontFamily: "var(--font-rubik), sans-serif" }}>
         העלה תמונה מסרט — המערכת תזהה מאיזה סרט היא נלקחה
       </p>
 
