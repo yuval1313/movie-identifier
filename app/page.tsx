@@ -110,14 +110,27 @@ export default function Home() {
     if (!file.type.startsWith("image/")) return;
     setResult(null);
     setError(null);
-    setMediaType(file.type);
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const dataUrl = e.target?.result as string;
+
+    const img = new Image();
+    const objectUrl = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(objectUrl);
+      const MAX = 1280;
+      let { width, height } = img;
+      if (width > MAX || height > MAX) {
+        if (width > height) { height = Math.round(height * MAX / width); width = MAX; }
+        else { width = Math.round(width * MAX / height); height = MAX; }
+      }
+      const canvas = document.createElement("canvas");
+      canvas.width = width;
+      canvas.height = height;
+      canvas.getContext("2d")!.drawImage(img, 0, 0, width, height);
+      const dataUrl = canvas.toDataURL("image/jpeg", 0.85);
       setPreview(dataUrl);
+      setMediaType("image/jpeg");
       setImage(dataUrl.split(",")[1]);
     };
-    reader.readAsDataURL(file);
+    img.src = objectUrl;
   };
 
   const onDrop = useCallback((e: React.DragEvent) => {
