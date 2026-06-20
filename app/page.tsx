@@ -153,11 +153,11 @@ export default function Home() {
 
       {/* Decorative animated snake lines */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <div className="snake-h absolute" style={{ top: 80, right: 0, width: 140 }} />
-        <div className="snake-v absolute" style={{ top: 80, right: 0, height: 140 }} />
-        <div className="snake-h absolute" style={{ bottom: 120, left: 0, width: 110 }} />
-        <div className="snake-v-pink absolute" style={{ bottom: 120, left: 0, height: 110 }} />
-        <div className="snake-h-cyan absolute" style={{ top: "45%", right: 0, width: 80 }} />
+        <div className="snake-h absolute" style={{ top: 80, left: 0, right: 0 }} />
+        <div className="snake-v absolute" style={{ top: 0, bottom: 0, right: 0 }} />
+        <div className="snake-h absolute" style={{ bottom: 120, left: 0, right: 0 }} />
+        <div className="snake-v-pink absolute" style={{ top: 0, bottom: 0, left: 0 }} />
+        <div className="snake-h-cyan absolute" style={{ top: "45%", left: 0, right: 0 }} />
         <div className="absolute rounded-full" style={{ top: -100, right: -100, width: 300, height: 300, background: "radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 70%)" }} />
         <div className="absolute rounded-full" style={{ bottom: -80, left: -80, width: 250, height: 250, background: "radial-gradient(circle, rgba(236,72,153,0.05) 0%, transparent 70%)" }} />
       </div>
