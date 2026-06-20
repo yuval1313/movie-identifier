@@ -134,8 +134,14 @@ export async function POST(req: NextRequest) {
     } as Parameters<typeof client.messages.create>[0]) as Awaited<ReturnType<typeof client.messages.create>>;
 
     const identifyText = getTextFromResponse(identifyResponse);
+    console.log("identifyText (first 600):", identifyText?.slice(0, 600));
+    if (!identifyText) {
+      console.error("identifyText is empty. Response content types:", (identifyResponse as { content: Array<{ type: string }> }).content.map(b => b.type));
+      return NextResponse.json({ error: "Empty model response" }, { status: 502 });
+    }
     const jsonStr = extractJson(identifyText);
     if (!jsonStr) {
+      console.error("extractJson returned null. Full text:", identifyText);
       return NextResponse.json({ error: "Invalid model response" }, { status: 502 });
     }
 
