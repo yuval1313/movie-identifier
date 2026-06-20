@@ -24,3 +24,45 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes snake-h {
+  0%   { background-position: -120px center; }
+  100% { background-position: calc(100% + 120px) center; }
+}
+
+@keyframes snake-v {
+  0%   { background-position: center -120px; }
+  100% { background-position: center calc(100% + 120px); }
+}
+
+.snake-h {
+  height: 2px;
+  background: linear-gradient(to right, transparent 0%, #7C3AED 30%, #EC4899 50%, #06B6D4 70%, transparent 100%);
+  background-size: 120px 2px;
+  background-repeat: no-repeat;
+  animation: snake-h 3s linear infinite;
+}
+
+.snake-h-cyan {
+  height: 2px;
+  background: linear-gradient(to right, transparent 0%, #06B6D4 40%, #7C3AED 70%, transparent 100%);
+  background-size: 90px 2px;
+  background-repeat: no-repeat;
+  animation: snake-h 2.5s linear infinite;
+}
+
+.snake-v {
+  width: 2px;
+  background: linear-gradient(to bottom, transparent 0%, #7C3AED 30%, #EC4899 50%, #06B6D4 70%, transparent 100%);
+  background-size: 2px 120px;
+  background-repeat: no-repeat;
+  animation: snake-v 3s linear infinite;
+}
+
+.snake-v-pink {
+  width: 2px;
+  background: linear-gradient(to bottom, transparent 0%, #EC4899 40%, #7C3AED 70%, transparent 100%);
+  background-size: 2px 90px;
+  background-repeat: no-repeat;
+  animation: snake-v 2.2s linear infinite;
+}

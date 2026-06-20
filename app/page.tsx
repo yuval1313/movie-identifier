@@ -130,20 +130,19 @@ export default function Home() {
     <main dir="rtl" className="min-h-screen flex flex-col items-center px-4 py-16 relative overflow-hidden"
       style={{ background: "#0d0d16", fontFamily: "var(--font-rubik), sans-serif", color: "white" }}>
 
-      {/* Decorative corner lines — matching yuvalswissa.com */}
+      {/* Decorative animated snake lines */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        {/* Top right */}
-        <div className="absolute" style={{ top: 80, right: 0, width: 120, height: 1, background: "linear-gradient(to left, #7C3AED, transparent)" }} />
-        <div className="absolute" style={{ top: 80, right: 0, width: 1, height: 120, background: "linear-gradient(to bottom, #7C3AED, transparent)" }} />
-        {/* Bottom left */}
-        <div className="absolute" style={{ bottom: 120, left: 0, width: 90, height: 1, background: "linear-gradient(to right, #EC4899, transparent)" }} />
-        <div className="absolute" style={{ bottom: 120, left: 0, width: 1, height: 90, background: "linear-gradient(to bottom, #EC4899, transparent)" }} />
-        {/* Mid right cyan */}
-        <div className="absolute" style={{ top: "45%", right: 0, width: 70, height: 1, background: "linear-gradient(to left, #06B6D4, transparent)" }} />
-        {/* Small circles */}
-        <div className="absolute rounded-full" style={{ top: "30%", left: 24, width: 10, height: 10, border: "1.5px solid #7C3AED44" }} />
-        <div className="absolute rounded-full" style={{ bottom: "35%", right: 32, width: 6, height: 6, border: "1.5px solid #EC489944" }} />
-        {/* Large faint orb */}
+        {/* Top right corner — horizontal snake */}
+        <div className="snake-h absolute" style={{ top: 80, right: 0, width: 140 }} />
+        {/* Top right corner — vertical snake */}
+        <div className="snake-v absolute" style={{ top: 80, right: 0, height: 140 }} />
+        {/* Bottom left corner — horizontal snake (pink) */}
+        <div className="snake-h absolute" style={{ bottom: 120, left: 0, width: 110 }} />
+        {/* Bottom left corner — vertical snake (pink) */}
+        <div className="snake-v-pink absolute" style={{ bottom: 120, left: 0, height: 110 }} />
+        {/* Mid right — cyan snake */}
+        <div className="snake-h-cyan absolute" style={{ top: "45%", right: 0, width: 80 }} />
+        {/* Faint orbs only (no circles) */}
         <div className="absolute rounded-full" style={{ top: -100, right: -100, width: 300, height: 300, background: "radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 70%)" }} />
         <div className="absolute rounded-full" style={{ bottom: -80, left: -80, width: 250, height: 250, background: "radial-gradient(circle, rgba(236,72,153,0.05) 0%, transparent 70%)" }} />
       </div>
