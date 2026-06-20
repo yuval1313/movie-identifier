@@ -134,9 +134,11 @@ export default function Home() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ images: images.map(i => ({ image: i.base64, mediaType: i.mediaType })) }),
       });
-      const data = await res.json();
+      let data: { error?: string } & Record<string, unknown>;
+      try { data = await res.json(); }
+      catch { throw new Error("הזיהוי לקח יותר מדי זמן — נסה עם תמונה אחת או קטנה יותר"); }
       if (!res.ok) throw new Error(data.error || "שגיאה");
-      setResult(data);
+      setResult(data as MovieResult);
     } catch (err) { setError(err instanceof Error ? err.message : "שגיאה"); }
     finally { setLoading(false); }
   };

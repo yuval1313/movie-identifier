@@ -126,7 +126,7 @@ export async function POST(req: NextRequest) {
     const identifyResponse = await client.messages.create({
       model: "claude-sonnet-4-6",
       max_tokens: 16000,
-      thinking: { type: "enabled", budget_tokens: 8000 },
+      thinking: { type: "enabled", budget_tokens: 5000 },
       messages: [{
         role: "user",
         content: [...imageBlocks, { type: "text", text: IDENTIFY_PROMPT(description) }],
