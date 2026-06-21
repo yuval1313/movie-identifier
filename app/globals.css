@@ -47,50 +47,50 @@ body {
 
 .snake-blob-h {
   position: fixed;
-  width: 120px;
+  width: 280px;
   height: 2px;
   border-radius: 2px;
-  background: linear-gradient(to right, transparent, #7C3AED 25%, #EC4899 50%, #06B6D4 75%, transparent);
-  box-shadow: 0 0 8px 2px #7C3AED88;
-  animation: snake-ltr 3s linear infinite;
+  background: linear-gradient(to right, transparent 0%, #7C3AED 20%, #EC4899 50%, #06B6D4 80%, transparent 100%);
+  box-shadow: 0 0 10px 2px #7C3AED88;
+  animation: snake-ltr 4s linear infinite;
 }
 
 .snake-blob-h-rev {
   position: fixed;
-  width: 120px;
+  width: 280px;
   height: 2px;
   border-radius: 2px;
-  background: linear-gradient(to right, transparent, #EC4899 25%, #7C3AED 75%, transparent);
-  box-shadow: 0 0 8px 2px #EC489988;
-  animation: snake-rtl 3.4s linear infinite;
+  background: linear-gradient(to right, transparent 0%, #06B6D4 20%, #EC4899 50%, #7C3AED 80%, transparent 100%);
+  box-shadow: 0 0 10px 2px #EC489988;
+  animation: snake-rtl 4.5s linear infinite;
 }
 
 .snake-blob-h-cyan {
   position: fixed;
-  width: 90px;
+  width: 200px;
   height: 2px;
   border-radius: 2px;
-  background: linear-gradient(to right, transparent, #06B6D4 40%, #7C3AED 70%, transparent);
-  box-shadow: 0 0 8px 2px #06B6D488;
-  animation: snake-ltr 2.5s linear infinite;
+  background: linear-gradient(to right, transparent 0%, #06B6D4 30%, #7C3AED 70%, transparent 100%);
+  box-shadow: 0 0 10px 2px #06B6D488;
+  animation: snake-ltr 3.5s linear infinite;
 }
 
 .snake-blob-v {
   position: fixed;
   width: 2px;
-  height: 120px;
+  height: 280px;
   border-radius: 2px;
-  background: linear-gradient(to bottom, transparent, #7C3AED 25%, #EC4899 50%, #06B6D4 75%, transparent);
-  box-shadow: 0 0 8px 2px #7C3AED88;
-  animation: snake-ttb 3s linear infinite;
+  background: linear-gradient(to bottom, transparent 0%, #7C3AED 20%, #EC4899 50%, #06B6D4 80%, transparent 100%);
+  box-shadow: 0 0 10px 2px #7C3AED88;
+  animation: snake-ttb 4s linear infinite;
 }
 
 .snake-blob-v-pink {
   position: fixed;
   width: 2px;
-  height: 90px;
+  height: 200px;
   border-radius: 2px;
-  background: linear-gradient(to bottom, transparent, #EC4899 40%, #7C3AED 70%, transparent);
-  box-shadow: 0 0 8px 2px #EC489988;
-  animation: snake-btt 2.2s linear infinite;
+  background: linear-gradient(to bottom, transparent 0%, #EC4899 30%, #7C3AED 70%, transparent 100%);
+  box-shadow: 0 0 10px 2px #EC489988;
+  animation: snake-btt 3s linear infinite;
 }
