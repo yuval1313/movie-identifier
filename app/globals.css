@@ -25,77 +25,67 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-@keyframes snake-ltr {
-  0%   { transform: translateX(-300px); }
+/* L-shaped corner snakes — matching yuvalswissa.com style */
+
+@keyframes corner-ltr {
+  0%   { transform: translateX(-120px); }
   100% { transform: translateX(100vw);  }
 }
 
-@keyframes snake-rtl {
-  0%   { transform: translateX(100vw);  }
-  100% { transform: translateX(-300px); }
+@keyframes corner-rtl {
+  0%   { transform: translateX(calc(100vw + 120px)); }
+  100% { transform: translateX(-120px); }
 }
 
-@keyframes snake-ttb {
-  0%   { transform: translateY(-300px); }
+@keyframes corner-ttb {
+  0%   { transform: translateY(-120px); }
   100% { transform: translateY(100vh);  }
 }
 
-@keyframes snake-btt {
-  0%   { transform: translateY(100vh);  }
-  100% { transform: translateY(-300px); }
+@keyframes corner-btt {
+  0%   { transform: translateY(calc(100vh + 120px)); }
+  100% { transform: translateY(-120px); }
 }
 
-.snake-blob-h {
+/* Base corner shape */
+.snake-corner {
   position: fixed;
-  left: 0;
-  width: 280px;
-  height: 2px;
-  border-radius: 2px;
-  background: linear-gradient(to right, transparent 0%, #7C3AED 20%, #EC4899 50%, #06B6D4 80%, transparent 100%);
-  box-shadow: 0 0 10px 2px #7C3AED88;
-  animation: snake-ltr 4s linear infinite;
+  width: 55px;
+  height: 55px;
 }
 
-.snake-blob-h-rev {
-  position: fixed;
-  left: 0;
-  width: 280px;
-  height: 2px;
-  border-radius: 2px;
-  background: linear-gradient(to right, transparent 0%, #06B6D4 20%, #EC4899 50%, #7C3AED 80%, transparent 100%);
-  box-shadow: 0 0 10px 2px #EC489988;
-  animation: snake-rtl 4.5s linear infinite;
+/* Bottom-left L (│ going down + ─ going right) */
+.snake-corner-bl {
+  border-left: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
 }
 
-.snake-blob-h-cyan {
-  position: fixed;
-  left: 0;
-  width: 200px;
-  height: 2px;
-  border-radius: 2px;
-  background: linear-gradient(to right, transparent 0%, #06B6D4 30%, #7C3AED 70%, transparent 100%);
-  box-shadow: 0 0 10px 2px #06B6D488;
-  animation: snake-ltr 3.5s linear infinite;
+/* Bottom-right L (│ going down + ─ going left) */
+.snake-corner-br {
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
 }
 
-.snake-blob-v {
-  position: fixed;
-  top: 0;
-  width: 2px;
-  height: 280px;
-  border-radius: 2px;
-  background: linear-gradient(to bottom, transparent 0%, #7C3AED 20%, #EC4899 50%, #06B6D4 80%, transparent 100%);
-  box-shadow: 0 0 10px 2px #7C3AED88;
-  animation: snake-ttb 4s linear infinite;
+/* Top-right L (│ going up + ─ going left) */
+.snake-corner-tr {
+  border-right: 2px solid currentColor;
+  border-top: 2px solid currentColor;
 }
 
-.snake-blob-v-pink {
-  position: fixed;
-  top: 0;
-  width: 2px;
-  height: 200px;
-  border-radius: 2px;
-  background: linear-gradient(to bottom, transparent 0%, #EC4899 30%, #7C3AED 70%, transparent 100%);
-  box-shadow: 0 0 10px 2px #EC489988;
-  animation: snake-btt 3s linear infinite;
+/* Top-left L (│ going up + ─ going right) */
+.snake-corner-tl {
+  border-left: 2px solid currentColor;
+  border-top: 2px solid currentColor;
+}
+
+/* Neon blue snake */
+.snake-blue {
+  color: #00AAFF;
+  box-shadow: -1px 1px 8px rgba(0, 170, 255, 0.45), 1px -1px 8px rgba(0, 170, 255, 0.45);
+}
+
+/* Neon purple snake */
+.snake-purple {
+  color: #9B5CF6;
+  box-shadow: -1px 1px 8px rgba(155, 92, 246, 0.45), 1px -1px 8px rgba(155, 92, 246, 0.45);
 }

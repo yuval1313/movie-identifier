@@ -154,11 +154,18 @@ export default function Home() {
 
       {/* Decorative animated snake lines */}
       <div className="fixed inset-0 pointer-events-none" style={{ overflow: "visible" }}>
-        <div className="snake-blob-h" style={{ top: 80 }} />
-        <div className="snake-blob-h-rev" style={{ bottom: 120 }} />
-        <div className="snake-blob-h-cyan" style={{ top: "45%" }} />
-        <div className="snake-blob-v" style={{ right: 0 }} />
-        <div className="snake-blob-v-pink" style={{ left: 0 }} />
+        {/* Blue corner — travels left to right near top */}
+        <div className="snake-corner snake-corner-br snake-blue"
+          style={{ top: 60, left: 0, animation: "corner-ltr 5s linear infinite" }} />
+        {/* Purple corner — travels right to left near bottom */}
+        <div className="snake-corner snake-corner-tl snake-purple"
+          style={{ bottom: 80, left: 0, animation: "corner-rtl 6s linear infinite" }} />
+        {/* Blue corner — travels top to bottom on right side */}
+        <div className="snake-corner snake-corner-bl snake-blue"
+          style={{ top: 0, right: 0, animation: "corner-ttb 7s linear infinite 1s" }} />
+        {/* Purple corner — travels bottom to top on left side */}
+        <div className="snake-corner snake-corner-tr snake-purple"
+          style={{ top: 0, left: 0, animation: "corner-btt 6.5s linear infinite 2s" }} />
         <div className="absolute rounded-full" style={{ top: -100, right: -100, width: 300, height: 300, background: "radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 70%)" }} />
         <div className="absolute rounded-full" style={{ bottom: -80, left: -80, width: 250, height: 250, background: "radial-gradient(circle, rgba(236,72,153,0.05) 0%, transparent 70%)" }} />
       </div>
