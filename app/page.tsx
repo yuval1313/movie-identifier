@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useRef, useEffect } from "react";
 import { Upload, Film, Search, X, AlertCircle, Clapperboard, Play, Plus } from "lucide-react";
-import SnakeCanvas from "./components/SnakeCanvas";
+import EyeCanvas from "./components/EyeCanvas";
 
 interface SimilarMovie { title: string; year: number; reason: string; }
 interface SimilarMovieWithPoster extends SimilarMovie { poster: string | null; }
@@ -153,8 +153,8 @@ export default function Home() {
     <main dir="rtl" className="min-h-screen flex flex-col items-center px-4 py-16 relative"
       style={{ background: "#0d0d16", fontFamily: "var(--font-rubik), sans-serif", color: "white" }}>
 
-      {/* Canvas snake animation */}
-      <SnakeCanvas />
+      {/* Eye canvas */}
+      <EyeCanvas />
 
       {/* Header */}
       <div className="text-center mb-10 relative z-10">
