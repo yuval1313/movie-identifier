@@ -2,7 +2,6 @@
 
 import { useState, useCallback, useRef, useEffect } from "react";
 import { Upload, Film, Search, X, AlertCircle, Clapperboard, Play, Plus } from "lucide-react";
-import EyeCanvas from "./components/EyeCanvas";
 
 interface SimilarMovie { title: string; year: number; reason: string; }
 interface SimilarMovieWithPoster extends SimilarMovie { poster: string | null; }
@@ -153,8 +152,13 @@ export default function Home() {
     <main dir="rtl" className="min-h-screen flex flex-col items-center px-4 py-16 relative"
       style={{ background: "#0d0d16", fontFamily: "var(--font-rubik), sans-serif", color: "white" }}>
 
-      {/* Eye canvas */}
-      <EyeCanvas />
+      {/* Static portrait background */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/portrait.jpg" alt="" style={{ position: "fixed", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", filter: "grayscale(1) brightness(0.55) contrast(1.08)", zIndex: 0, pointerEvents: "none", userSelect: "none" }} />
+      {/* Edge vignette */}
+      <div style={{ position: "fixed", inset: 0, zIndex: 1, pointerEvents: "none", background: "radial-gradient(ellipse 75% 85% at 50% 45%, transparent 35%, #0d0d16 100%), linear-gradient(to bottom, #0d0d16 0%, transparent 14%, transparent 80%, #0d0d16 100%), linear-gradient(to right, #0d0d16 0%, transparent 12%, transparent 88%, #0d0d16 100%)" }} />
+      {/* Laser scanline */}
+      <div className="laser-scan" style={{ position: "fixed", left: 0, right: 0, zIndex: 2, pointerEvents: "none" }} />
 
       {/* Header */}
       <div className="text-center mb-10 relative z-10">
