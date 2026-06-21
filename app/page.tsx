@@ -153,11 +153,11 @@ export default function Home() {
 
       {/* Decorative animated snake lines */}
       <div className="fixed inset-0 pointer-events-none" style={{ overflow: "visible" }}>
-        <div className="snake-track-h" style={{ top: 80 }}><div className="snake-blob-h" /></div>
-        <div className="snake-track-h" style={{ bottom: 120 }}><div className="snake-blob-h-rev" /></div>
-        <div className="snake-track-h" style={{ top: "45%" }}><div className="snake-blob-h-cyan" /></div>
-        <div className="snake-track-v" style={{ right: 0 }}><div className="snake-blob-v" /></div>
-        <div className="snake-track-v" style={{ left: 0 }}><div className="snake-blob-v-pink" /></div>
+        <div className="snake-blob-h" style={{ top: 80 }} />
+        <div className="snake-blob-h-rev" style={{ bottom: 120 }} />
+        <div className="snake-blob-h-cyan" style={{ top: "45%" }} />
+        <div className="snake-blob-v" style={{ right: 0 }} />
+        <div className="snake-blob-v-pink" style={{ left: 0 }} />
         <div className="absolute rounded-full" style={{ top: -100, right: -100, width: 300, height: 300, background: "radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 70%)" }} />
         <div className="absolute rounded-full" style={{ bottom: -80, left: -80, width: 250, height: 250, background: "radial-gradient(circle, rgba(236,72,153,0.05) 0%, transparent 70%)" }} />
       </div>
