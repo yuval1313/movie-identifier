@@ -134,11 +134,12 @@ export default function Home() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ images: images.map(i => ({ image: i.base64, mediaType: i.mediaType })) }),
       });
-      let data: { error?: string } & Record<string, unknown>;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      let data: any;
       try { data = await res.json(); }
       catch { throw new Error("הזיהוי לקח יותר מדי זמן — נסה עם תמונה אחת או קטנה יותר"); }
       if (!res.ok) throw new Error(data.error || "שגיאה");
-      setResult(data as MovieResult);
+      setResult(data);
     } catch (err) { setError(err instanceof Error ? err.message : "שגיאה"); }
     finally { setLoading(false); }
   };
