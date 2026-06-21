@@ -150,7 +150,7 @@ export default function Home() {
 
   return (
     <main dir="rtl" className="min-h-screen flex flex-col items-center px-4 py-16 relative"
-      style={{ background: "#000000", fontFamily: "var(--font-rubik), sans-serif", color: "white" }}>
+      style={{ background: "#0d0d16", fontFamily: "var(--font-rubik), sans-serif", color: "white" }}>
 
       {/* Laser scanline */}
       <div className="laser-scan" style={{ position: "fixed", left: 0, right: 0, zIndex: 0, pointerEvents: "none" }} />
