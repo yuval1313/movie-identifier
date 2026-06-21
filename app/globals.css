@@ -26,27 +26,28 @@ body {
 }
 
 @keyframes snake-ltr {
-  0%   { left: -140px; }
-  100% { left: 100vw;  }
+  0%   { transform: translateX(-300px); }
+  100% { transform: translateX(100vw);  }
 }
 
 @keyframes snake-rtl {
-  0%   { left: 100vw;  }
-  100% { left: -140px; }
+  0%   { transform: translateX(100vw);  }
+  100% { transform: translateX(-300px); }
 }
 
 @keyframes snake-ttb {
-  0%   { top: -140px; }
-  100% { top: 100vh;  }
+  0%   { transform: translateY(-300px); }
+  100% { transform: translateY(100vh);  }
 }
 
 @keyframes snake-btt {
-  0%   { top: 100vh;  }
-  100% { top: -140px; }
+  0%   { transform: translateY(100vh);  }
+  100% { transform: translateY(-300px); }
 }
 
 .snake-blob-h {
   position: fixed;
+  left: 0;
   width: 280px;
   height: 2px;
   border-radius: 2px;
@@ -57,6 +58,7 @@ body {
 
 .snake-blob-h-rev {
   position: fixed;
+  left: 0;
   width: 280px;
   height: 2px;
   border-radius: 2px;
@@ -67,6 +69,7 @@ body {
 
 .snake-blob-h-cyan {
   position: fixed;
+  left: 0;
   width: 200px;
   height: 2px;
   border-radius: 2px;
@@ -77,6 +80,7 @@ body {
 
 .snake-blob-v {
   position: fixed;
+  top: 0;
   width: 2px;
   height: 280px;
   border-radius: 2px;
@@ -87,6 +91,7 @@ body {
 
 .snake-blob-v-pink {
   position: fixed;
+  top: 0;
   width: 2px;
   height: 200px;
   border-radius: 2px;

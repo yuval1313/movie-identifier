@@ -149,7 +149,7 @@ export default function Home() {
   const confidenceColor = !result ? "#6B7280" : result.confidence >= 80 ? "#10B981" : result.confidence >= 50 ? "#F59E0B" : "#EF4444";
 
   return (
-    <main dir="rtl" className="min-h-screen flex flex-col items-center px-4 py-16 relative overflow-hidden"
+    <main dir="rtl" className="min-h-screen flex flex-col items-center px-4 py-16 relative"
       style={{ background: "#0d0d16", fontFamily: "var(--font-rubik), sans-serif", color: "white" }}>
 
       {/* Decorative animated snake lines */}
