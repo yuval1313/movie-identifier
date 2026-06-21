@@ -211,9 +211,18 @@ export default function Home() {
                   onClick={() => extraInputRef.current?.click()}
                   onMouseEnter={e => { e.currentTarget.style.borderColor = "#7C3AED99"; e.currentTarget.style.background = "#7C3AED14"; }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = "#7C3AED55"; e.currentTarget.style.background = "#7C3AED08"; }}
+                  onDragOver={e => { e.preventDefault(); e.currentTarget.style.borderColor = "#EC4899"; e.currentTarget.style.background = "#EC489914"; }}
+                  onDragLeave={e => { e.currentTarget.style.borderColor = "#7C3AED55"; e.currentTarget.style.background = "#7C3AED08"; }}
+                  onDrop={e => {
+                    e.preventDefault();
+                    e.currentTarget.style.borderColor = "#7C3AED55";
+                    e.currentTarget.style.background = "#7C3AED08";
+                    const file = e.dataTransfer.files[0];
+                    if (file) addFile(file);
+                  }}
                 >
                   <Plus className="w-5 h-5" style={{ color: "#7C3AED" }} />
-                  <span className="text-xs" style={{ color: "#6B7280" }}>הוסף תמונה</span>
+                  <span className="text-xs" style={{ color: "#6B7280" }}>גרור או בחר</span>
                   <input ref={extraInputRef} type="file" accept="image/*" className="hidden" onChange={e => e.target.files?.[0] && addFile(e.target.files[0])} />
                 </div>
               )}
