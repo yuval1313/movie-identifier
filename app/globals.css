@@ -32,12 +32,33 @@ body {
 }
 
 .laser-scan {
-  height: 1px;
-  background: #00f3ff;
-  box-shadow:
-    0 0 6px 1px rgba(0, 243, 255, 0.7),
-    0 0 2px 0px #00f3ff;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.018);
   animation: laser-scan 4s linear infinite;
+  will-change: top;
+}
+
+.laser-scan::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent       0%,
+    #00f3ff          20%,
+    #bd00ff          50%,
+    #00f3ff          80%,
+    transparent      100%
+  );
+  box-shadow:
+    0 0 8px 1px rgba(0, 243, 255, 0.55),
+    0 0 4px 1px rgba(189, 0, 255, 0.40),
+    0 0 2px 0px #00f3ff;
 }
 
 @keyframes snake-ltr {
