@@ -262,90 +262,99 @@ export default function Home() {
 
             {/* Result */}
             {result && (
-              <GradientBorderCard from="#7C3AED" to="#06B6D4">
-                <div className="space-y-4">
-                  {result.movie ? (
-                    <>
-                      <div className="flex items-start justify-between gap-3">
+              <div className="space-y-3">
+                {result.movie ? (
+                  <>
+                    {/* Card 1 — Movie info */}
+                    <GradientBorderCard from="#7C3AED" to="#06B6D4">
+                      <div className="space-y-4">
+                        <div className="flex items-start justify-between gap-3">
+                          <div>
+                            <h2 className="text-2xl font-bold leading-tight">{result.movie}</h2>
+                            {result.original_title && result.original_title !== result.movie && (
+                              <p className="text-sm mt-0.5" style={{ color: "#9CA3AF" }}>{result.original_title}</p>
+                            )}
+                            <div className="flex gap-3 mt-1 text-sm" style={{ color: "#9CA3AF" }}>
+                              {result.year && <span>{result.year}</span>}
+                              {result.director && <><span>·</span><span>{result.director}</span></>}
+                            </div>
+                          </div>
+                          <a href={youtubeTrailerUrl(result.movie, result.year)} target="_blank" rel="noopener noreferrer"
+                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold shrink-0 transition-all"
+                            style={{ background: "linear-gradient(135deg, #EC489922, #7C3AED22)", border: "1px solid #EC489966", color: "white" }}
+                            onMouseEnter={e => (e.currentTarget.style.background = "linear-gradient(135deg, #EC489944, #7C3AED44)")}
+                            onMouseLeave={e => (e.currentTarget.style.background = "linear-gradient(135deg, #EC489922, #7C3AED22)")}
+                          >
+                            <Play className="w-3.5 h-3.5 fill-white" />טריילר
+                          </a>
+                        </div>
+
                         <div>
-                          <h2 className="text-2xl font-bold leading-tight">{result.movie}</h2>
-                          {result.original_title && result.original_title !== result.movie && (
-                            <p className="text-sm mt-0.5" style={{ color: "#9CA3AF" }}>{result.original_title}</p>
-                          )}
-                          <div className="flex gap-3 mt-1 text-sm" style={{ color: "#9CA3AF" }}>
-                            {result.year && <span>{result.year}</span>}
-                            {result.director && <><span>·</span><span>{result.director}</span></>}
+                          <div className="flex justify-between text-sm mb-1.5">
+                            <span style={{ color: "#9CA3AF" }}>רמת ביטחון</span>
+                            <span className="font-semibold" style={{ color: confidenceColor }}>{result.confidence}%</span>
+                          </div>
+                          <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "#1F2937" }}>
+                            <div className="h-full rounded-full" style={{ width: `${result.confidence}%`, background: `linear-gradient(to left, ${confidenceColor}, ${confidenceColor}99)` }} />
                           </div>
                         </div>
-                        <a href={youtubeTrailerUrl(result.movie, result.year)} target="_blank" rel="noopener noreferrer"
-                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold shrink-0 transition-all"
-                          style={{ background: "linear-gradient(135deg, #EC489922, #7C3AED22)", border: "1px solid #EC489966", color: "white" }}
-                          onMouseEnter={e => (e.currentTarget.style.background = "linear-gradient(135deg, #EC489944, #7C3AED44)")}
-                          onMouseLeave={e => (e.currentTarget.style.background = "linear-gradient(135deg, #EC489922, #7C3AED22)")}
-                        >
-                          <Play className="w-3.5 h-3.5 fill-white" />טריילר
-                        </a>
+
+                        {result.actors_recognized && result.actors_recognized.length > 0 && (
+                          <div className="flex flex-wrap gap-2">
+                            {result.actors_recognized.map(actor => (
+                              <span key={actor} className="px-2.5 py-1 rounded-full text-xs" style={{ background: "#7C3AED22", border: "1px solid #7C3AED55", color: "#C4B5FD" }}>{actor}</span>
+                            ))}
+                          </div>
+                        )}
+
+                        {result.reasoning && (
+                          <div className="rounded-lg px-3 py-2" style={{ background: "#06B6D411", border: "1px solid #06B6D422" }}>
+                            <p className="text-xs mb-0.5" style={{ color: "#06B6D4" }}>איך זיהינו</p>
+                            <p className="text-xs leading-relaxed" style={{ color: "#9CA3AF" }}>{result.reasoning}</p>
+                          </div>
+                        )}
                       </div>
+                    </GradientBorderCard>
 
-                      <div>
-                        <div className="flex justify-between text-sm mb-1.5">
-                          <span style={{ color: "#9CA3AF" }}>רמת ביטחון</span>
-                          <span className="font-semibold" style={{ color: confidenceColor }}>{result.confidence}%</span>
-                        </div>
-                        <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "#1F2937" }}>
-                          <div className="h-full rounded-full" style={{ width: `${result.confidence}%`, background: `linear-gradient(to left, ${confidenceColor}, ${confidenceColor}99)` }} />
-                        </div>
-                      </div>
+                    {/* Card 2 — Scene description */}
+                    {result.scene_description && (
+                      <GradientBorderCard from="#06B6D444" to="#7C3AED44">
+                        <p className="text-xs mb-1.5" style={{ color: "#06B6D4" }}>על הסצנה</p>
+                        <p className="text-sm leading-relaxed" style={{ color: "#D1D5DB" }}>{result.scene_description}</p>
+                      </GradientBorderCard>
+                    )}
 
-                      {result.actors_recognized && result.actors_recognized.length > 0 && (
-                        <div className="flex flex-wrap gap-2">
-                          {result.actors_recognized.map(actor => (
-                            <span key={actor} className="px-2.5 py-1 rounded-full text-xs" style={{ background: "#7C3AED22", border: "1px solid #7C3AED55", color: "#C4B5FD" }}>{actor}</span>
-                          ))}
+                    {/* Card 3 — Similar movies */}
+                    {similarWithPosters.length > 0 && (
+                      <GradientBorderCard from="#EC489944" to="#7C3AED44">
+                        <div className="flex items-center gap-2 mb-3">
+                          <Clapperboard className="w-4 h-4" style={{ color: "#EC4899" }} />
+                          <p className="text-sm font-semibold">אולי תאהב גם</p>
+                          <span className="text-xs mr-auto" style={{ color: "#6B7280" }}>לחץ לטריילר</span>
                         </div>
-                      )}
-
-                      {result.reasoning && (
-                        <div className="rounded-lg px-3 py-2" style={{ background: "#06B6D411", border: "1px solid #06B6D422" }}>
-                          <p className="text-xs mb-0.5" style={{ color: "#06B6D4" }}>איך זיהינו</p>
-                          <p className="text-xs leading-relaxed" style={{ color: "#9CA3AF" }}>{result.reasoning}</p>
+                        <div className="space-y-2">
+                          {similarWithPosters.map(film => <SimilarMovieCard key={film.title} film={film} />)}
                         </div>
-                      )}
-
-                      {result.scene_description && (
-                        <div className="pt-4" style={{ borderTop: "1px solid #ffffff10" }}>
-                          <p className="text-xs mb-1" style={{ color: "#6B7280" }}>על הסצנה</p>
-                          <p className="text-sm leading-relaxed" style={{ color: "#D1D5DB" }}>{result.scene_description}</p>
-                        </div>
-                      )}
-                    </>
-                  ) : (
+                      </GradientBorderCard>
+                    )}
+                  </>
+                ) : (
+                  <GradientBorderCard from="#7C3AED" to="#06B6D4">
                     <div className="text-center py-4">
                       <p className="text-lg mb-2" style={{ color: "#9CA3AF" }}>לא ניתן לזהות את הסרט</p>
                       {result.scene_description && <p className="text-sm" style={{ color: "#6B7280" }}>{result.scene_description}</p>}
                     </div>
-                  )}
+                  </GradientBorderCard>
+                )}
 
-                  {similarWithPosters.length > 0 && (
-                    <div className="space-y-2 pt-4" style={{ borderTop: "1px solid #ffffff10" }}>
-                      <div className="flex items-center gap-2 mb-3">
-                        <Clapperboard className="w-4 h-4" style={{ color: "#7C3AED" }} />
-                        <p className="text-sm font-semibold">אולי תאהב גם</p>
-                        <span className="text-xs mr-auto" style={{ color: "#6B7280" }}>לחץ לטריילר</span>
-                      </div>
-                      {similarWithPosters.map(film => <SimilarMovieCard key={film.title} film={film} />)}
-                    </div>
-                  )}
-
-                  <button onClick={reset} className="w-full py-2.5 rounded-xl text-sm transition-all"
-                    style={{ border: "1px solid #ffffff15", color: "#9CA3AF" }}
-                    onMouseEnter={e => { e.currentTarget.style.borderColor = "#7C3AED66"; e.currentTarget.style.color = "white"; }}
-                    onMouseLeave={e => { e.currentTarget.style.borderColor = "#ffffff15"; e.currentTarget.style.color = "#9CA3AF"; }}
-                  >
-                    העלה תמונות חדשות
-                  </button>
-                </div>
-              </GradientBorderCard>
+                <button onClick={reset} className="w-full py-2.5 rounded-xl text-sm transition-all"
+                  style={{ border: "1px solid #ffffff15", color: "#9CA3AF" }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#7C3AED66"; e.currentTarget.style.color = "white"; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = "#ffffff15"; e.currentTarget.style.color = "#9CA3AF"; }}
+                >
+                  העלה תמונות חדשות
+                </button>
+              </div>
             )}
           </div>
         )}
