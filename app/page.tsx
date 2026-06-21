@@ -154,11 +154,12 @@ export default function Home() {
 
       {/* Decorative animated snake lines */}
       <div className="fixed inset-0 pointer-events-none" style={{ overflow: "visible" }}>
-        <div className="snake-h snake-neon-blue"  style={{ top: 70,    animation: "snake-ltr 5s linear infinite" }} />
+        <div className="snake-h snake-neon-blue"   style={{ top: 70,    animation: "snake-ltr 5s linear infinite" }} />
         <div className="snake-h snake-neon-purple" style={{ bottom: 100, animation: "snake-rtl 6s linear infinite" }} />
-        <div className="snake-h snake-neon-blue"  style={{ top: "42%", animation: "snake-ltr 7s linear infinite 2s" }} />
-        <div className="snake-v snake-neon-purple" style={{ right: 0,   animation: "snake-ttb 6s linear infinite 1s" }} />
-        <div className="snake-v snake-neon-blue"  style={{ left: 0,    animation: "snake-btt 7s linear infinite 3s" }} />
+        <div className="snake-h snake-neon-blue"   style={{ top: "42%", animation: "snake-ltr 7s linear infinite 2s" }} />
+        <div className="snake-h snake-neon-purple" style={{ top: "68%", animation: "snake-rtl 8s linear infinite 4s" }} />
+        <div className="snake-v snake-neon-purple"  style={{ right: 0,   animation: "snake-ttb 6s linear infinite 1s" }} />
+        <div className="snake-v snake-neon-blue"   style={{ left: 0,    animation: "snake-btt 7s linear infinite 3s" }} />
         <div className="absolute rounded-full" style={{ top: -100, right: -100, width: 300, height: 300, background: "radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 70%)" }} />
         <div className="absolute rounded-full" style={{ bottom: -80, left: -80, width: 250, height: 250, background: "radial-gradient(circle, rgba(236,72,153,0.05) 0%, transparent 70%)" }} />
       </div>

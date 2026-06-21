@@ -48,25 +48,25 @@ body {
 .snake-h {
   position: fixed;
   left: 0;
-  height: 2px;
+  height: 3px;
   width: 80px;
-  border-radius: 2px;
+  border-radius: 3px;
 }
 
 .snake-v {
   position: fixed;
   top: 0;
-  width: 2px;
+  width: 3px;
   height: 80px;
-  border-radius: 2px;
+  border-radius: 3px;
 }
 
 .snake-neon-blue {
   background: #00AAFF;
-  box-shadow: 0 0 6px 2px rgba(0, 170, 255, 0.6), 0 0 12px 4px rgba(0, 170, 255, 0.25);
+  box-shadow: 0 0 5px 1px rgba(0, 170, 255, 0.4), 0 0 10px 2px rgba(0, 170, 255, 0.15);
 }
 
 .snake-neon-purple {
   background: #9B5CF6;
-  box-shadow: 0 0 6px 2px rgba(155, 92, 246, 0.6), 0 0 12px 4px rgba(155, 92, 246, 0.25);
+  box-shadow: 0 0 5px 1px rgba(155, 92, 246, 0.4), 0 0 10px 2px rgba(155, 92, 246, 0.15);
 }
