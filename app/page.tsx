@@ -189,9 +189,9 @@ export default function Home() {
         ) : (
           <div className="space-y-4">
             {/* Image grid */}
-            <div className="grid gap-3" style={{ gridTemplateColumns: images.length === 1 ? "1fr" : "repeat(3, 1fr)" }}>
+            <div className="grid gap-3" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
               {images.map((img, idx) => (
-                <div key={idx} className="relative rounded-xl overflow-hidden" style={{ border: "1px solid #ffffff15", aspectRatio: images.length === 1 ? "16/9" : "1/1" }}>
+                <div key={idx} className="relative rounded-xl overflow-hidden" style={{ border: "1px solid #ffffff15", aspectRatio: "1/1" }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={img.preview} alt={`תמונה ${idx + 1}`} className="w-full h-full object-cover" />
                   {!result && (
