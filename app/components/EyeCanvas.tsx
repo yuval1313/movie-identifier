@@ -146,24 +146,34 @@ export default function EyeCanvas() {
 
   return (
     <>
-      {/* Portrait background — darkened */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/portrait.jpg"
-        alt=""
-        style={{
-          position: "fixed",
+      {/* Portrait background */}
+      <div style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none" }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/portrait.jpg"
+          alt=""
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center",
+            filter: "grayscale(100%) brightness(0.72) contrast(1.08)",
+            userSelect: "none",
+          }}
+        />
+        {/* Gradient overlay — blends edges into the dark background */}
+        <div style={{
+          position: "absolute",
           inset: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          objectPosition: "center",
-          filter: "grayscale(100%) brightness(0.38) contrast(1.1)",
-          zIndex: 0,
-          pointerEvents: "none",
-          userSelect: "none",
-        }}
-      />
+          background: `
+            radial-gradient(ellipse 70% 80% at 50% 45%, transparent 40%, #0d0d16 100%),
+            linear-gradient(to bottom, #0d0d16 0%, transparent 18%, transparent 75%, #0d0d16 100%),
+            linear-gradient(to right,  #0d0d16 0%, transparent 15%, transparent 85%, #0d0d16 100%)
+          `,
+        }} />
+      </div>
 
       {/* Eye-tracking canvas overlay */}
       <canvas
