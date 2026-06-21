@@ -152,7 +152,7 @@ export default function Home() {
       style={{ background: "#0d0d16", fontFamily: "var(--font-rubik), sans-serif", color: "white" }}>
 
       {/* Decorative animated snake lines */}
-      <div className="fixed inset-0 pointer-events-none" style={{ overflow: "clip" }}>
+      <div className="fixed inset-0 pointer-events-none" style={{ overflow: "visible" }}>
         <div className="snake-track-h" style={{ top: 80 }}><div className="snake-blob-h" /></div>
         <div className="snake-track-h" style={{ bottom: 120 }}><div className="snake-blob-h-rev" /></div>
         <div className="snake-track-h" style={{ top: "45%" }}><div className="snake-blob-h-cyan" /></div>
