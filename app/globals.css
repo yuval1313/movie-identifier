@@ -25,44 +25,93 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-@keyframes snake-h {
-  0%   { background-position: -120px center; }
-  100% { background-position: calc(100% + 120px) center; }
+@keyframes snake-move-h {
+  0%   { transform: translateX(-140px); }
+  100% { transform: translateX(100vw); }
 }
 
-@keyframes snake-v {
-  0%   { background-position: center -120px; }
-  100% { background-position: center calc(100% + 120px); }
+@keyframes snake-move-h-rev {
+  0%   { transform: translateX(100vw); }
+  100% { transform: translateX(-140px); }
 }
 
-.snake-h {
+@keyframes snake-move-v {
+  0%   { transform: translateY(-140px); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes snake-move-v-rev {
+  0%   { transform: translateY(100vh); }
+  100% { transform: translateY(-140px); }
+}
+
+/* Wrapper tracks: position-only, no size */
+.snake-track-h {
+  position: absolute;
   height: 2px;
-  background: linear-gradient(to right, transparent 0%, #7C3AED 30%, #EC4899 50%, #06B6D4 70%, transparent 100%);
-  background-size: 120px 2px;
-  background-repeat: no-repeat;
-  animation: snake-h 3s linear infinite;
+  left: 0; right: 0;
+  overflow: visible;
 }
 
-.snake-h-cyan {
+.snake-track-v {
+  position: absolute;
+  width: 2px;
+  top: 0; bottom: 0;
+  overflow: visible;
+}
+
+/* The glowing blob that moves */
+.snake-blob-h {
+  position: absolute;
+  top: 0;
+  width: 120px;
   height: 2px;
-  background: linear-gradient(to right, transparent 0%, #06B6D4 40%, #7C3AED 70%, transparent 100%);
-  background-size: 90px 2px;
-  background-repeat: no-repeat;
-  animation: snake-h 2.5s linear infinite;
+  border-radius: 2px;
+  background: linear-gradient(to right, transparent, #7C3AED 25%, #EC4899 50%, #06B6D4 75%, transparent);
+  box-shadow: 0 0 6px 1px #7C3AED99;
+  animation: snake-move-h 3s linear infinite;
 }
 
-.snake-v {
-  width: 2px;
-  background: linear-gradient(to bottom, transparent 0%, #7C3AED 30%, #EC4899 50%, #06B6D4 70%, transparent 100%);
-  background-size: 2px 120px;
-  background-repeat: no-repeat;
-  animation: snake-v 3s linear infinite;
+.snake-blob-h-rev {
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(to right, transparent, #EC4899 25%, #7C3AED 75%, transparent);
+  box-shadow: 0 0 6px 1px #EC489999;
+  animation: snake-move-h-rev 3.4s linear infinite;
 }
 
-.snake-v-pink {
+.snake-blob-h-cyan {
+  position: absolute;
+  top: 0;
+  width: 90px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(to right, transparent, #06B6D4 40%, #7C3AED 70%, transparent);
+  box-shadow: 0 0 6px 1px #06B6D499;
+  animation: snake-move-h 2.5s linear infinite;
+}
+
+.snake-blob-v {
+  position: absolute;
+  left: 0;
   width: 2px;
-  background: linear-gradient(to bottom, transparent 0%, #EC4899 40%, #7C3AED 70%, transparent 100%);
-  background-size: 2px 90px;
-  background-repeat: no-repeat;
-  animation: snake-v 2.2s linear infinite;
+  height: 120px;
+  border-radius: 2px;
+  background: linear-gradient(to bottom, transparent, #7C3AED 25%, #EC4899 50%, #06B6D4 75%, transparent);
+  box-shadow: 1px 0 6px 1px #7C3AED99;
+  animation: snake-move-v 3s linear infinite;
+}
+
+.snake-blob-v-pink {
+  position: absolute;
+  left: 0;
+  width: 2px;
+  height: 90px;
+  border-radius: 2px;
+  background: linear-gradient(to bottom, transparent, #EC4899 40%, #7C3AED 70%, transparent);
+  box-shadow: 1px 0 6px 1px #EC489999;
+  animation: snake-move-v-rev 2.2s linear infinite;
 }
