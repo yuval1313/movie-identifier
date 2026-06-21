@@ -158,9 +158,9 @@ export default function Home() {
 
       {/* Header */}
       <div className="text-center mb-10 relative z-10">
-        <h1 className="tracking-widest leading-none mb-1 select-none" style={{ fontFamily: "var(--font-karantina), sans-serif", fontSize: "clamp(3.5rem, 12vw, 6rem)", fontWeight: 700, WebkitTextStroke: "2px #4a9ebe", color: "transparent", letterSpacing: "0.08em" }}>מזהה</h1>
-        <h1 className="tracking-widest leading-none mb-4" style={{ fontFamily: "var(--font-karantina), sans-serif", fontSize: "clamp(3.5rem, 12vw, 6rem)", fontWeight: 700, background: "linear-gradient(135deg, #7C3AED, #EC4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "0.08em" }}>סרטים</h1>
-        <div className="mx-auto mb-5" style={{ width: 80, height: 2, background: "linear-gradient(to right, #7C3AED, #EC4899)" }} />
+        <h1 className="tracking-widest leading-none mb-1 select-none" style={{ fontFamily: "var(--font-karantina), sans-serif", fontSize: "clamp(3.5rem, 12vw, 6rem)", fontWeight: 700, color: "#4a9ebe", letterSpacing: "0.08em" }}>מזהה</h1>
+        <h1 className="tracking-widest leading-none mb-2" style={{ fontFamily: "var(--font-karantina), sans-serif", fontSize: "clamp(3.5rem, 12vw, 6rem)", fontWeight: 700, background: "linear-gradient(135deg, #7C3AED, #EC4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "0.08em" }}>סרטים</h1>
+        <div className="mb-5" style={{ height: 2, background: "linear-gradient(to right, #7C3AED, #EC4899)", width: "100%" }} />
         <p style={{ color: "#9CA3AF", fontSize: "0.95rem" }}>העלה עד 3 תמונות מאותו סרט — ככל שתוסיף יותר, הזיהוי יהיה מדויק יותר</p>
       </div>
 
